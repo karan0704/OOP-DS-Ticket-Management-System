@@ -62,7 +62,13 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public boolean deleteTicketBySixDigitNumber(int sixDigitNumber) {
-		return false;
-		// Delete ticket by six-digit number
+		for (int i = 0; i < ticketCount; i++) {
+            if (tickets[i] != null && tickets[i].getSixDigitTicketNumber() == sixDigitNumber) {
+                tickets[i] = tickets[--ticketCount];
+                tickets[ticketCount] = null;
+                return true;
+            }
+        }
+        return false;
 	}
 }

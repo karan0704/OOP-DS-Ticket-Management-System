@@ -29,7 +29,7 @@ public class TicketController {
 				createTicket();
 				break;
 
-			case 3:
+			case 6:
 				System.out.println("Exiting...");
 				return;
 
@@ -38,7 +38,22 @@ public class TicketController {
 				break;
 			default:
 				System.out.println("Invalid choice. Please try again.");
+
+			case 5:
+				deleteTicket();
+				break;
+
 			}
+		}
+	}
+
+	private void deleteTicket() {
+		System.out.print("Enter six-digit ticket number: ");
+		int sixDigitTicketNumber = scanner.nextInt();
+		if (ticketService.deleteTicketBySixDigitNumber(sixDigitTicketNumber)) {
+			System.out.println("Ticket deleted successfully.");
+		} else {
+			System.out.println("Failed to delete ticket. Ticket not found.");
 		}
 	}
 
