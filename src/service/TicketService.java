@@ -8,7 +8,7 @@ import model.TicketStatus;
 
 public interface TicketService {
 
-	void createTicket(Ticket ticket);
+    Ticket createTicket(String customerName, String ticketTitle, String ticketIssue);
    
 	Ticket[] getAllTickets();
  
