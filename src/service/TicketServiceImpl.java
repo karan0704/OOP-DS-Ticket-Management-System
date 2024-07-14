@@ -48,6 +48,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Ticket searchTicketByID(int id) {
+		return null;
         // Search and return ticket by ID
     }
 
@@ -58,6 +59,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public boolean deleteTicketBySixDigitNumber(int sixDigitNumber) {
+		return false;
         // Delete ticket by six-digit number
     }
 }

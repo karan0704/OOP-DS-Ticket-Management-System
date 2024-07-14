@@ -1,6 +1,3 @@
-/**
- * 
- */
 package service;
 
 import model.Ticket;
@@ -8,7 +5,7 @@ import model.TicketStatus;
 
 public interface TicketService {
 
-    Ticket createTicket(String customerName, String ticketTitle, String ticketIssue);
+    Ticket createTicket(String customerName, String ticketTitle, String ticketDescription);
    
 	Ticket[] getAllTickets();
  
@@ -21,5 +18,7 @@ public interface TicketService {
 	Ticket searchTicketByID(int id);
    
 	void changeTicketStatus(int ticketID, TicketStatus newStatus);
+
+	boolean deleteTicketBySixDigitNumber(int sixDigitNumber);
 
 }
