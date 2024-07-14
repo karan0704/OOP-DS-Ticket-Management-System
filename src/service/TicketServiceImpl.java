@@ -5,15 +5,24 @@ package service;
 
 import model.Ticket;
 import model.TicketStatus;
+import util.RandomSixDigitNumber;
 
 public class TicketServiceImpl implements TicketService {
 	
-    private Ticket[] tickets = new Ticket[100];
+    private static final int MAX_TICKETS = 100;
+	private Ticket[] tickets = new Ticket[MAX_TICKETS];
     private int ticketCount = 0;
+    private int currentTicketId = 1;
 
-    @Override
-    public void createTicket(Ticket ticket) {
-        tickets[ticketCount++] = ticket;
+    public Ticket createTicket(String customerName, String ticketTitle, String ticketDescription) {
+        if (ticketCount < MAX_TICKETS) {
+            Ticket ticket = new Ticket(currentTicketId++, customerName, RandomSixDigitNumber.getSixDigitNumber(), ticketTitle, ticketDescription);
+            tickets[ticketCount++] = ticket;
+            return ticket;
+        } else {
+            System.out.println("Maximum ticket limit reached.");
+            return null;
+        }
     }
 
     @Override
