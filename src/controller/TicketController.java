@@ -110,7 +110,7 @@ public class TicketController {
 
 		Ticket ticket = ticketService.createTicket(customerName, ticketTitle, ticketDescription);
 		if (ticket != null) {
-			System.out.println("Ticket created successfully: " + ticket);
+			System.out.println("Ticket created successfully: \n" + ticket);
 		}
 	}
 
