@@ -10,15 +10,15 @@ import util.RandomSixDigitNumber;
 public class TicketServiceImpl implements TicketService {
 
 	private static final int MAX_TICKETS = 100;
-	private Ticket[] tickets = new Ticket[MAX_TICKETS];
-	private int ticketCount = 0;
+	private Ticket[] ticketsArrayObject = new Ticket[MAX_TICKETS];
+	private int countInTicketArray = 0;
 	private int currentTicketId = 1;
 
 	public Ticket createTicket(String customerName, String ticketTitle, String ticketDescription) {
-		if (ticketCount < MAX_TICKETS) {
+		if (countInTicketArray < MAX_TICKETS) {
 			Ticket ticket = new Ticket(currentTicketId++, customerName, RandomSixDigitNumber.getSixDigitNumber(),
 					ticketTitle, ticketDescription);
-			tickets[ticketCount++] = ticket;
+			ticketsArrayObject[countInTicketArray++] = ticket;
 			return ticket;
 		} else {
 			System.out.println("Maximum ticket limit reached.");
@@ -28,20 +28,20 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public Ticket[] getAllTickets() {
-		Ticket[] result = new Ticket[ticketCount];
-		System.arraycopy(tickets, 0, result, 0, ticketCount);
+		Ticket[] result = new Ticket[countInTicketArray];
+		System.arraycopy(ticketsArrayObject, 0, result, 0, countInTicketArray);
 		return result;
 	}
 
 	@Override
 	public Ticket[] getAllTicketsSortedById() {
-		return tickets;
+		return ticketsArrayObject;
 
 	}
 
 	@Override
 	public Ticket[] getAllTicketsSortedByCustomerName() {
-		return tickets;
+		return ticketsArrayObject;
 	}
 
 	@Override
@@ -62,13 +62,27 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public boolean deleteTicketBySixDigitNumber(int sixDigitNumber) {
-		for (int i = 0; i < ticketCount; i++) {
-            if (tickets[i] != null && tickets[i].getSixDigitTicketNumber() == sixDigitNumber) {
-                tickets[i] = tickets[--ticketCount];
-                tickets[ticketCount] = null;
+		for (int i = 0; i < countInTicketArray; i++) {
+            if (ticketsArrayObject[i] != null && ticketsArrayObject[i].getSixDigitTicketNumber() == sixDigitNumber) {
+                ticketsArrayObject[i] = ticketsArrayObject[--countInTicketArray];
+                ticketsArrayObject[countInTicketArray] = null;
                 return true;
             }
         }
         return false;
 	}
+
+	 @Override
+	    public Ticket[] getTicketsByCustomerName(String customerName) {
+	        Ticket[] result = new Ticket[countInTicketArray];
+	        int index = 0;
+	        for (int i = 0; i < countInTicketArray; i++) {
+	            if (ticketsArrayObject[i].getCustomerName().equalsIgnoreCase(customerName)) {
+	                result[index++] = ticketsArrayObject[i];
+	            }
+	        }
+	        Ticket[] finalResult = new Ticket[index];
+	        System.arraycopy(result, 0, finalResult, 0, index);
+	        return finalResult;
+	    }
 }
