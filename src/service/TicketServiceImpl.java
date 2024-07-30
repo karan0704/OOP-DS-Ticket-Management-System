@@ -28,19 +28,9 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Ticket[] getAllTickets() {
-        Ticket[] getAllTicketsArray = new Ticket[countInTicketArray];
-        System.arraycopy(ticketsArrayObject, 0, getAllTicketsArray, 0, countInTicketArray);
-
-        for (int i = 0; i < getAllTicketsArray.length - 1; i++) {
-            for (int j = i + 1; j < getAllTicketsArray.length; j++) {
-                if (getAllTicketsArray[i].getTicketID() > getAllTicketsArray[j].getTicketID()) {
-                    Ticket temp = getAllTicketsArray[i];
-                    getAllTicketsArray[i] = getAllTicketsArray[j];
-                    getAllTicketsArray[j] = temp;
-                }
-            }
-        }
-        return getAllTicketsArray;
+        Ticket[] result = new Ticket[countInTicketArray];
+        System.arraycopy(ticketsArrayObject, 0, result, 0, countInTicketArray);
+        return result;
     }
 
     @Override
