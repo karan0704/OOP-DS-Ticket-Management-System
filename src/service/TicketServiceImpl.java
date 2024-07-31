@@ -10,9 +10,10 @@ import util.RandomSixDigitNumber;
 public class TicketServiceImpl implements TicketService {
 
     private static final int MAX_TICKETS = 100;
-    private Ticket[] ticketsArrayObject = new Ticket[MAX_TICKETS];
+    private final Ticket[] ticketsArrayObject = new Ticket[MAX_TICKETS];
     private int countInTicketArray = 0;
     private int currentTicketId = 1;
+    Ticket[] getAllTicketsArray = new Ticket[countInTicketArray];
 
     public Ticket createTicket(String customerName, String ticketTitle, String ticketDescription) {
         if (countInTicketArray < MAX_TICKETS) {
@@ -28,7 +29,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Ticket[] getAllTickets() {
-        Ticket[] getAllTicketsArray = new Ticket[countInTicketArray];
+
         System.arraycopy(ticketsArrayObject, 0, getAllTicketsArray, 0, countInTicketArray);
 
         for (int i = 0; i < getAllTicketsArray.length - 1; i++) {
@@ -51,7 +52,17 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Ticket[] getAllTicketsSortedByCustomerName() {
-        return ticketsArrayObject;
+
+        for (int i = 0; i < getAllTicketsArray.length - 1; i++) {
+                    for (int j = i + 1; j < getAllTicketsArray.length; j++) {
+                        if (getAllTicketsArray[i].getCustomerName().compareToIgnoreCase(getAllTicketsArray[j].getCustomerName()) > 0) {
+                            Ticket temp = getAllTicketsArray[i];
+                            getAllTicketsArray[i] = getAllTicketsArray[j];
+                            getAllTicketsArray[j] = temp;
+                        }
+                    }
+                }
+        return getAllTicketsArray;
     }
 
     @Override

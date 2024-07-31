@@ -93,40 +93,22 @@ public class TicketController {
 
         int viewChoice = getChoice();
 
-        Ticket[] tickets = ticketService.getAllTickets();
         switch (viewChoice) {
-            case 1:
-                // Sort tickets by Ticket ID
-                for (int i = 0; i < tickets.length - 1; i++) {
-                    for (int j = i + 1; j < tickets.length; j++) {
-                        if (tickets[i].getTicketID() > tickets[j].getTicketID()) {
-                            Ticket temp = tickets[i];
-                            tickets[i] = tickets[j];
-                            tickets[j] = temp;
-                        }
-                    }
-
+            case 1:// Sort tickets by Ticket ID
+                Ticket[] arrayTicketSortedByID = ticketService.getAllTickets();
+                for (Ticket ticket : arrayTicketSortedByID) {
+                    System.out.println(ticket);
                 }
                 break;
-            case 2:
-                // Sort tickets by Customer Name
-                for (int i = 0; i < tickets.length - 1; i++) {
-                    for (int j = i + 1; j < tickets.length; j++) {
-                        if (tickets[i].getCustomerName().compareToIgnoreCase(tickets[j].getCustomerName()) > 0) {
-                            Ticket temp = tickets[i];
-                            tickets[i] = tickets[j];
-                            tickets[j] = temp;
-                        }
-                    }
+            case 2:// Sort tickets by Customer Name
+                Ticket[] arrayTicketSortedByCustomerName = ticketService.getAllTicketsSortedByCustomerName();
+                for (Ticket ticket : arrayTicketSortedByCustomerName) {
+                    System.out.println(ticket);
                 }
                 break;
             default:
                 System.out.println("Invalid choice. Returning to main menu.");
                 return;
-        }
-
-        for (Ticket ticket : tickets) {
-            System.out.println(ticket);
         }
 
 
