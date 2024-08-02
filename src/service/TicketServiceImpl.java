@@ -41,6 +41,7 @@ public class TicketServiceImpl implements TicketService {
                 }
             }
         }
+        System.arraycopy(getAllTicketsArray, 0, ticketsArrayObject, 0, MAX_TICKETS);
         return getAllTicketsArray;
     }
 
