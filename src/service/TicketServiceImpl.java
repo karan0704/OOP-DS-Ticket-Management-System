@@ -7,12 +7,9 @@ import model.Ticket;
 import model.TicketStatus;
 import util.RandomSixDigitNumber;
 
-public class TicketServiceImpl implements TicketService {
+public class  TicketServiceImpl implements TicketService {
 
-    private static final int MAX_TICKETS = 100;
-    private final Ticket[] ticketsArrayObject = new Ticket[MAX_TICKETS];
-    private int countInTicketArray = 0;
-    private int currentTicketId = 1;
+
     Ticket[] getAllTicketsArray = new Ticket[countInTicketArray];
 
     public Ticket createTicket(String customerName, String ticketTitle, String ticketDescription) {
