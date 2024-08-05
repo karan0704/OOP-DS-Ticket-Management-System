@@ -1,7 +1,16 @@
 package controller;
 
-public class Menu
-{
+import java.util.Scanner;
+
+public class TicketMenu {
+
+
+    TicketController ticketController;
+    public TicketMenu(TicketController ticketController) {
+        this.ticketController =  ticketController;
+    }
+
+
     public void displayMenu() {
         while (true) {
             System.out.println("Welcome to Ticket Management Service");
@@ -14,4 +23,19 @@ public class Menu
             System.out.println("6. Exit");
 
             int choice = getChoice();
+            switch (choice) {
+                case 1:ticketController.crea
+            }
+        }
+    }
+
+    private static int getChoice() {
+        Scanner sc = new Scanner(System.in);
+
+        while (!sc.hasNextInt()) {
+            System.out.print("Invalid input. Please enter a number: ");
+            sc.next();
+        }
+        return sc.nextInt();
+    }
 }

@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74795ac4-2ba3-4a44-aa93-b2f0452e9052" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/repository/TicketRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/collection/ServiceTicketManagementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/collection/ServiceTicketManagementSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TicketMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/TicketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/TicketServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +109,7 @@
       <workItem from="1722593347638" duration="822000" />
       <workItem from="1722595349984" duration="898000" />
       <workItem from="1722675337142" duration="32000" />
-      <workItem from="1722778473772" duration="3547000" />
+      <workItem from="1722778473772" duration="5525000" />
     </task>
     <servers />
   </component>
@@ -135,8 +132,8 @@
       <breakpoints>
         <line-breakpoint log-message="true" log-stack="true" suspend="NONE" type="java-method">
           <url>file://$PROJECT_DIR$/src/controller/TicketController.java</url>
-          <line>81</line>
-          <properties class="TicketController" method="viewAllTickets">
+          <line>91</line>
+          <properties class="controller.TicketController" method="viewAllTickets">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
